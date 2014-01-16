@@ -1,0 +1,7 @@
+With Selection
+ If .MergeCells Then
+           .MergeCells = False
+           Selection.Cells(1, 1).Copy
+           ActiveSheet.Paste 'Or PasteSpecial xlPasteFormulasAndNumberFormats
+  End If
+End With

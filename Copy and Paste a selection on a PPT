@@ -1,0 +1,37 @@
+'*******************************************************
+'* Title : Copy and Paste a selection on a Powerpoint
+'* Comments : This procedure allows you to copy and
+'* paste a selection in a PPT
+'* *
+'*******************************************************
+'* Parameters description : *
+'* 1. .......... .................................. *
+'* 2. .......... .................................. *
+'* 3. .......... .................................. *
+'* 4. .......... .................................. *
+'* Returned value .................................. *
+'*******************************************************
+'* Creation date : 20/01/2014 By: Nicolas Ivanoff *
+'* Modification : ../../.... By: ............ *
+'*******************************************************
+Public Sub CopyPasteSelection()
+   
+    Dim PPApp As PowerPoint.Application
+    Dim PPPres As PowerPoint.Presentation
+    Dim PPSlide As PowerPoint.Slide
+    Dim myLayout As PowerPoint.CustomLayout
+    
+    Set PPApp = CreateObject("PowerPoint.Application")
+    Set PPPres = PPApp.Presentations.Add
+    Set myLayout = PPPres.SlideMaster.CustomLayouts.Add(1)
+    
+    Set PPSlide = PPPres.Slides.AddSlide(1, myLayout)
+        
+              
+        Selection.CopyPicture Appearance:=xlScreen, Format:=xlPicture
+        PPSlide.Shapes.Paste.Select
+
+        
+        PPApp.ActiveWindow.Selection.ShapeRange.Align msoAlignCenters, True
+        PPApp.ActiveWindow.Selection.ShapeRange.Align msoAlignMiddles, True
+End Sub

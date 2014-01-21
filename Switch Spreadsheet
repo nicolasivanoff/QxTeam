@@ -1,0 +1,22 @@
+Public xlSheetIndex As Integer
+Public xlSheetIndexprevious As Integer
+
+Private Sub Workbook_Open()
+    xlSheetIndexprevious = 1
+    xlSheetIndex = 2
+End Sub
+
+Private Sub Workbook_SheetActivate(ByVal Sh As Object)
+    xlSheetIndexprevious = xlSheetIndex
+    xlSheetIndex = ActiveSheet.Index
+End Sub
+
+Public Sub SwitchSpreadsheet()
+    
+    If ActiveSheet.Index = xlSheetIndex Then
+        Worksheets(xlSheetIndexprevious).Select
+    Else
+        Worksheets(xlSheetIndex).Select
+    End If
+    
+End Sub

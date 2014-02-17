@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub ThisAddIn_Shutdown() Handles Me.Shutdown
-
+        'test
     End Sub
 
 End Class

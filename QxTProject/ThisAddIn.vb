@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub ThisAddIn_Shutdown() Handles Me.Shutdown
-        'test
+        'test vbProject 2
     End Sub
 
 End Class
